@@ -22,8 +22,9 @@ function TodoList(){
         {todoList.map(function(listItem){
           return(
             <TodoListItem
-              key = {listItem.id}
-              todo = {listItem}
+              key={listItem.id}
+              id={listItem.id}
+              title={listItem.title}
             />
           )})}
       </ul>
