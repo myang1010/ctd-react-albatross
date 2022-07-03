@@ -1,6 +1,6 @@
 function ListItem(props){
   return (
-    <li key={props.id}>{props.title}</li>
+    <li>{props.title}</li>
   )
 }
 export default ListItem;
