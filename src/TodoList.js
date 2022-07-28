@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoListItem from './TodoListItem'
 
-function TodoList({todoList}){
+function TodoList({todoList, onRemoveTodo}){
   return (
     <div>
       <ul>
@@ -10,6 +10,7 @@ function TodoList({todoList}){
             <TodoListItem
               key={todo.id}
               todo={todo}
+              onRemoveTodo={onRemoveTodo}
             />
           )})}
       </ul>
