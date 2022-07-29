@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 
 const InputWithLabel = ({children, todoTitle, handleTitleChange}) => {
   const inputRef = React.useRef();
-  
+
   useEffect(()=>{
     inputRef.current.focus();
-  },[])
+  })
   
   return(
     <>
