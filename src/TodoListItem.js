@@ -1,6 +1,6 @@
 import React from 'react';
 
-function TodoListItem({todo, todo:{title}, onRemoveTodo}){ // todo:{title} 
+function TodoListItem({todo, todo:{title}, onRemoveTodo}){
   return (
     <li>
       {todo.fields.Title}
