@@ -8,24 +8,45 @@ function App() {
   
   const [isLoading, setIsLoading] = React.useState(true);
   
-  useEffect(()=>{
-    new Promise((resolve, reject)=>
-      setTimeout(()=>
-        resolve({data:{todoList: JSON.parse(localStorage.getItem('savedTodoList'))}})
-      ,2000)
-    )
-    .then((result)=>{
-      setTodoList(result.data.todoList);
-      setIsLoading(false)
-    })
-  })
+  // first way of fetching data, following homework instructions
+  // useEffect(()=>{
+  //   fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default`,{
+  //     headers:{ 'Authorization': `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`}
+  //   })
+  //   .then((response)=>response.json())
+  //   .then((result)=>{
+  //     setTodoList(result.records);
+  //     setIsLoading(false)
+  //   })
+  // },[])
 
+  //second way of fetching data, idea from Frank
+  const loadTodos = async() => {
+    try{
+      const reponse = await fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default`,{
+        headers:{ 'Authorization': `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`}
+      });
+
+      const todoFromAPI = await reponse.json();
+      // const todos = todoFromAPI.records.map(todo => todo.fields); //we can also filter the todo list first here
+      const todos = todoFromAPI.records;
+
+      setTodoList(todos);
+      setIsLoading(false);
+
+    }catch(error){
+      console.log(error.message)
+    }
+  }
+
+  useEffect(()=> loadTodos,[])
+  
   useEffect(()=>{
     if(!isLoading){
       localStorage.setItem('savedTodoList', JSON.stringify(todoList))
     }  
   }, [todoList])
-
+  
   const addTodo=(newTodo)=>{
     setTodoList([...todoList, newTodo])
   }
