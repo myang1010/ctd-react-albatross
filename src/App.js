@@ -66,11 +66,11 @@ function App() {
       <Routes>
         <Route path='/' element={
           <>
-            <div className="body">
-            <h1>Todo List</h1>
-            <AddTodoForm onAddTodo={addTodo} className="py"/>
+            <div className="container">
+            <h1 className="headlinePrimary">Todo List</h1>
+            <AddTodoForm onAddTodo={addTodo} />
             { isLoading ? (
-              <p>Loading...</p> 
+              <p class="center">Loading...</p> 
               ) : (
               <TodoList todoList={todoList} onRemoveTodo={removeTodo}/>
             )}

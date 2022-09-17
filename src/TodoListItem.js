@@ -48,7 +48,7 @@ const StyledButton = styled.button`
 
 function TodoListItem({todo, todo:{title}, onRemoveTodo}){
   return (
-    <li>
+    <>
       <StyledItem>
         <StyledColumnItem width='50%'>{todo.fields.Title}</StyledColumnItem>
         <StyledColumnButton width='10%'> 
@@ -60,7 +60,7 @@ function TodoListItem({todo, todo:{title}, onRemoveTodo}){
           </StyledButton>
         </StyledColumnButton>
       </StyledItem>
-    </li>
+    </>
   )
 }
 export default TodoListItem;
