@@ -70,7 +70,7 @@ function App() {
             <h1 className="headlinePrimary">Todo List</h1>
             <AddTodoForm onAddTodo={addTodo} />
             { isLoading ? (
-              <p class="center">Loading...</p> 
+              <p className="center">Loading...</p> 
               ) : (
               <TodoList todoList={todoList} onRemoveTodo={removeTodo}/>
             )}
