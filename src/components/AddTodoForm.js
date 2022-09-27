@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {useState} from 'react';
 import InputWithLabel from './InputWithLabel';
-import "./App.css";
+import '../App.css';
 
 function AddTodoForm({onAddTodo}){
 
@@ -29,6 +30,10 @@ function AddTodoForm({onAddTodo}){
       <button className="button">Add</button>
     </form>
   );
+}
+
+AddTodoForm.propTypes = {
+  onAddTodo: PropTypes.func
 }
 
 export default AddTodoForm;

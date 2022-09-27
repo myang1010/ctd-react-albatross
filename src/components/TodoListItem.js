@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 // import style from './TodoListItem.module.css';
 import styled from 'styled-components';
@@ -62,5 +63,10 @@ function TodoListItem({todo, todo:{title}, onRemoveTodo}){
       </StyledItem>
     </>
   )
+}
+
+TodoListItem.prototype = {
+  todo:PropTypes.object,
+  onRemoveTodo: PropTypes.func
 }
 export default TodoListItem;
