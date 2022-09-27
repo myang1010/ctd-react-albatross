@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import TodoList from './TodoList';
 import AddTodoForm from './AddTodoForm';
+import "./App.css";
 
 function App() {
   
@@ -65,13 +66,15 @@ function App() {
       <Routes>
         <Route path='/' element={
           <>
-            <h1>Todo List</h1>
-            <AddTodoForm onAddTodo={addTodo}/>
+            <div className="container">
+            <h1 className="headlinePrimary">Todo List</h1>
+            <AddTodoForm onAddTodo={addTodo} />
             { isLoading ? (
-              <p>Loading...</p> 
+              <p className="center">Loading...</p> 
               ) : (
               <TodoList todoList={todoList} onRemoveTodo={removeTodo}/>
             )}
+            </div>
           </>
         }>
 

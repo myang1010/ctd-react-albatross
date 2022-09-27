@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import "./App.css"
 
 const InputWithLabel = ({children, todoTitle, handleTitleChange}) => {
   const inputRef = React.useRef();
@@ -9,13 +10,14 @@ const InputWithLabel = ({children, todoTitle, handleTitleChange}) => {
   
   return(
     <>
-      <label htmlFor='todoTitle'>{children}</label>
+      <label className="label" htmlFor='todoTitle'>{children}</label>
       <input
         id='todoTitle' 
         ref={inputRef} 
         name='title' 
         value={todoTitle} 
         onChange={handleTitleChange}
+        className="input"
       />
     </>
 )}
