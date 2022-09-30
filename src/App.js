@@ -10,7 +10,13 @@ function App() {
   
   const [isLoading, setIsLoading] = React.useState(true);
   
-  // // first way of fetching data, following homework instructions
+  useEffect(()=>{
+    if(!isLoading){
+      localStorage.setItem('savedTodoList', JSON.stringify(todoList))
+    }  
+  }, [todoList, isLoading])
+
+  // first way of fetching data, following homework instructions
   // useEffect(()=>{
   //   fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default`,{
   //     headers:{ 'Authorization': `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`}
@@ -53,22 +59,81 @@ function App() {
       console.log(error.message)
     }
   }
-
+  
   useEffect(()=> loadTodos,[])
+
+  const postTodo = async(todo) =>{
+    const todoData = {
+      fields:{
+        Title: todo.title
+      }
+    }
+    try{
+      const response = await fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default`,
+      {
+        method: 'POST',  
+        headers:{ 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`
+        },
+        body: JSON.stringify(todoData)
+      });
+
+      console.log("response: ", response)
   
-  useEffect(()=>{
-    if(!isLoading){
-      localStorage.setItem('savedTodoList', JSON.stringify(todoList))
-    }  
-  }, [todoList, isLoading])
-  
-  const addTodo=(newTodo)=>{
-    setTodoList([...todoList, newTodo])
+    if(!response.ok){
+      const message = `Error has occurred: ${response.status}`;
+      throw new Error(message);
+    }
+
+    const dataResponse = await response.json();
+    return dataResponse;
+
+    }catch(error){
+      console.log(error.message);
+      return null;
+    } 
+  }  
+
+  const addTodo = async (todo) => {
+    await postTodo(todo);
+
+    const newTodo = {
+      fields:{
+        Title: todo.title,
+      }
+    }
+
+    const newTodos = [...todoList, newTodo];
+    setTodoList(newTodos);
   }
 
-  const removeTodo=(id)=>{
+  const deleteTodo = async(id)=>{
+
+    try{
+      const response = await fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default/${id}`,
+      {
+        method: 'DELETE',  
+        headers:{ 
+          'Authorization': `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`
+        },
+      });
+
+      if(!response.ok){
+        const message = `Error has occurred: ${response.status}`;
+        throw new Error(message);
+      }
+    }catch(error){
+      console.log(error.message);
+      return null;
+    } 
+  }
+
+  const removeTodo = async (todo)=>{
+    await deleteTodo(todo.id);
+
     const newTodo = todoList.filter(
-      (todo)=>todo.id !== id
+      (item) => item.id !== todo.id 
     )
 
     setTodoList(newTodo)

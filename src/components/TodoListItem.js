@@ -55,7 +55,7 @@ function TodoListItem({todo, todo:{title}, onRemoveTodo}){
         <StyledColumnButton width='10%'> 
           <StyledButton
             type="button" 
-            onClick={()=>onRemoveTodo(todo.id)}
+            onClick={()=>onRemoveTodo(todo)}
           >
             Remove
           </StyledButton>
