@@ -47,7 +47,7 @@ const StyledButton = styled.button`
   }
 `;
 
-function TodoListItem({todo, todo:{title}, onRemoveTodo}){
+function TodoListItem({todo, onRemoveTodo}){
   return (
     <>
       <StyledItem>

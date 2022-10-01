@@ -15,7 +15,11 @@ function AddTodoForm({onAddTodo}){
   
   const handleAddTodo = (event) =>{
     event.preventDefault();
-    onAddTodo({title: todoTitle, id: Date.now()})
+    if (todoTitle == ''){
+      alert("Title can't be empty");
+      return;
+    }
+    onAddTodo({title: todoTitle }); //onAddTodo({title: todoTitle, id: Date.now()})
     setTodoTitle('')
   }
 
