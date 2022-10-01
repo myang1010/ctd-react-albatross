@@ -9,7 +9,7 @@ function TodoContainer({tableName}){
   const[isLoading, setIsLoading] = useState(true);
 
   useEffect(()=>{
-    fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/Default`,{
+    fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/${tableName}`,{
        headers:{ 'Authorization': `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`}
     })
     .then((response)=>response.json())
