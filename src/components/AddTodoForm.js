@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import {useState} from 'react';
 import InputWithLabel from './InputWithLabel';
-import '../App.css';
+import '../styling/App.css';
 
 function AddTodoForm({onAddTodo}){
 
@@ -15,11 +15,11 @@ function AddTodoForm({onAddTodo}){
   
   const handleAddTodo = (event) =>{
     event.preventDefault();
-    if (todoTitle == ''){
+    if (todoTitle === ''){
       alert("Title can't be empty");
       return;
     }
-    onAddTodo({title: todoTitle }); //onAddTodo({title: todoTitle, id: Date.now()})
+    onAddTodo({title: todoTitle }); 
     setTodoTitle('')
   }
 

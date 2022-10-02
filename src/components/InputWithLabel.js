@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { useEffect } from "react";
-import '../App.css';
+import '../styling/App.css';
 
 const InputWithLabel = ({todoTitle, handleTitleChange, children}) => {
   const inputRef = React.useRef();

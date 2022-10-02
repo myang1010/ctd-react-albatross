@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import TodoList from './TodoList';
 import AddTodoForm from './AddTodoForm';
 import PropTypes from 'prop-types';
-import '../App.css';
+import '../styling/App.css';
 
 function TodoContainer({tableName}){
   const[todoList, setTodoList] = useState([]);
@@ -22,12 +22,18 @@ function TodoContainer({tableName}){
       setTodoList(sortedTodos);
       setIsLoading(false);
     })
-  }, []);
+  }, );
 
-  const addTodo = async(title) =>{
+  const addTodo = async(todo) =>{
+    let isExist = todoList.find((existingTodo)=>(existingTodo.fields.Title === todo.title))
+    if(isExist) { 
+      alert("Task already exist.")
+      return;
+    }    
+
     const todoData = {
       fields:{
-        Title: title
+        Title: todo.title
       }
     }
     try{
@@ -48,17 +54,14 @@ function TodoContainer({tableName}){
         else if (objA.createdTime > objB.createdTime) {return 1;}
         else { return 1;}
       }); 
-  
-      setTodoList(newTodos);
-      
-      if(!response.ok){
-          const message = `Error has occurred: ${response.status}`;
-          throw new Error(message);
-        }
-        
-        const dataResponse = await response.json();
-        return dataResponse;
-        
+
+    setTodoList(newTodos);
+    
+    if(!response.ok){
+        const message = `Error has occurred: ${response.status}`;
+        throw new Error(message);
+    }
+    
     }catch(error){
         console.log(error.message);
         return null;
@@ -68,7 +71,7 @@ function TodoContainer({tableName}){
   const removeTodo = async(id)=>{
 
     try{
-      const response = await fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/${tableName}/${id}`,
+      const response = await fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/${tableName}/${id.id}`,
       {
         method: 'DELETE',  
         headers:{ 
@@ -86,7 +89,7 @@ function TodoContainer({tableName}){
     } 
     
     const newTodo = todoList.filter(
-      (item) => item.id !== id 
+      (item) => item.id !== id.id 
     );
     setTodoList(newTodo);
   }

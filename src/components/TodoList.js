@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import TodoListItem from './TodoListItem'
+import style from '../styling/TodoList.module.css'
+import '../styling/App.css'
 import { sortBy } from 'lodash';
 
 const SORTS = {
@@ -27,12 +29,12 @@ function TodoList({todoList, onRemoveTodo}){
 
   return (
     <>
-      <div>
-        <p width='40%'>Sort by:</p>
-        <button onClick={()=>handleSort('TASK')}>
+      <div className={style.middle}>
+        <strong>Sort by:</strong>
+        <button className={`${style.MarginRight} ${style.MarginLeft} button`} onClick={()=>handleSort('TASK')}>
           Task
         </button>
-        <button onClick={()=>handleSort('CTEATED')}>
+        <button className= {`${style.MarginRight} button`} onClick={()=>handleSort('CTEATED')}>
           Created Time
         </button>
       </div>

@@ -1,19 +1,22 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import style from './TodoListItem.module.css';
+import style from '../styling/TodoListItem.module.css';
 
 function TodoListItem({todo, onRemoveTodo}){
   return (
-    <>
-      <li width='50%'>{todo.fields.Title}
-        <button
-          type="button" 
-          onClick={()=>onRemoveTodo(todo)}
-        >
-          Remove
-        </button>
+    <div className="center">
+      <li className={style.ListItem}>
+        <div className={style.left}>{todo.fields.Title}</div>
+        <div className={style.right}>
+          <button
+            type="button" 
+            onClick={()=>onRemoveTodo(todo)}
+          >
+            Remove
+          </button>
+        </div>
       </li>
-    </>
+    </div>
   )
 }
 

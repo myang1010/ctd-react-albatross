@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import TodoContainer from './components/todoContainer';
-import "./App.css";
+import "./styling/App.css";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <Routes>
         <Route path='/' element={
           <>
-            <TodoContainer tableName='Todo List'></TodoContainer>
+            <TodoContainer tableName='TodoList'></TodoContainer>
           </>
         }>
 
