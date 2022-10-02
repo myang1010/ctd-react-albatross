@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import style from '../styling/Navbar.module.css';
 import '../styling/App.css';
+import {Hearts} from 'react-loader-spinner';
 
 function TodoContainer({tableName}){
   const[todoList, setTodoList] = useState([]);
@@ -107,7 +108,17 @@ function TodoContainer({tableName}){
         <h1 className="headlinePrimary">{tableName}</h1>
           <AddTodoForm onAddTodo={addTodo} />
           { isLoading ? (
-            <p className="center">Loading...</p> 
+            <div className={style.loading}> 
+              <Hearts 
+                height="80"
+                width="80"
+                color="#4fa94d"
+                ariaLabel="hearts-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                visible={true}
+              />
+            </div>
             ) : (
             <TodoList todoList={todoList} onRemoveTodo={removeTodo}/>
           )}
