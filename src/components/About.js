@@ -17,12 +17,12 @@ function About(){
         <dt><strong>What does this app do?</strong></dt>
         <dd>- This Todo List app allows user to add, delete and sort tasks</dd>
       </dl>
-      <p><strong>What will we see in this app?</strong></p>
+      <p><strong>What will be in this final project?</strong></p>
         <ul>
-            <li>Has 2 pages, About and Todo List page </li>
-            <li>Has all the 5 components requred, plus one About.js </li>
-            <li>Uses both CSS module and css file</li>
-            <li>Hits all the bonus points
+            <li>2 pages, About and Todo List page </li>
+            <li>All the 5 required components, plus one About.js </li>
+            <li>CSS module and css file</li>
+            <li>Bonus points
                 <ul>
                     <li>Use TodoContainer.js</li>
                     <li>Navigation menu</li>
@@ -32,12 +32,13 @@ function About(){
                     <li>Add multi-media usage</li>
                 </ul>
             </li>
-            <li><strong>Extra effort</strong>
+            <li><strong>Some extra effort</strong>
                 <ul>
                     <li>Add Hearts loading indicator</li>
                     <li>Add an empty input check</li>
                     <li>Add a duplicate input check</li>
                     <li>Add a task capitalization function</li>
+                    <li>Include a simple unit test case</li>
                 </ul>
             </li>
             <li>Things to do next...
