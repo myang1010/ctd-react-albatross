@@ -3,6 +3,7 @@ import React from 'react';
 import {useState} from 'react';
 import InputWithLabel from './InputWithLabel';
 import '../styling/App.css';
+import plusSign from '../img/plus.png'
 
 function AddTodoForm({onAddTodo}){
 
@@ -31,7 +32,10 @@ function AddTodoForm({onAddTodo}){
       >
         <strong className="label">Task: </strong>
       </InputWithLabel>
-      <button className="button">Add</button>
+      <button className="buttonPlus">
+        <img src={plusSign} alt="plus sign" width="24px" height="24px"/>
+      </button>
+
     </form>
   );
 }

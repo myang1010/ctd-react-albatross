@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import style from '../styling/TodoListItem.module.css';
+import minusSign from '../img/minus.png'
 
 function TodoListItem({todo, onRemoveTodo}){
   return (
@@ -8,12 +9,15 @@ function TodoListItem({todo, onRemoveTodo}){
       <li className={style.ListItem}>
         <div className={style.left}>{todo.fields.Title}</div>
         <div className={style.right}>
-          <button
+          <button className="buttonMinus" onClick={()=>onRemoveTodo(todo)}>
+            <img src={minusSign} alt="remove sign" width="24px" height="18px"/>
+          </button>
+          {/* <button
             type="button" 
             onClick={()=>onRemoveTodo(todo)}
           >
             Remove
-          </button>
+          </button> */}
         </div>
       </li>
     </div>

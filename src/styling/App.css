@@ -1,11 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
 .container {
   height: 100vw;
   padding: 20px;
   background: rgb(172, 211, 250);
   color: #171212;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+  font-family:'Josefin Sans';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -52,6 +52,14 @@
 .button:hover {
   background: #171212;
   color: #ffffff;
+}
+
+.buttonPlus, .buttonMinus{
+  background: transparent;
+  border:#ffffff;
+  padding: 5px;
+  cursor: pointer;
+  transition: all 0.1s ease-in;
 }
 
 .buttonSmall {
