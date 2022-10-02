@@ -20,16 +20,14 @@ describe('something truthy and falsy', () => {
   });
 });
 
-describe('navbar has About and To Do List link', () => {
-  it('renders About link', () => {
+  test('renders About link', () => {
     render(<App />);
     const linkElement = screen.getByText(/About/i);
     expect(linkElement).toBeInTheDocument();
   });
 
-  it('renders To Do List link', () => {
+  test('renders Task label', () => {
     render(<App />);
-    const linkElement = screen.getByText(/To Do List/i);
-    expect(linkElement).toBeInTheDocument();
+    const labelElement = screen.getByLabelText(/Task/i);
+    expect(labelElement).toBeInTheDocument();
   });
-});
