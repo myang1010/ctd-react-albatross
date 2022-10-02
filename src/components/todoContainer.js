@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import TodoList from './TodoList';
 import AddTodoForm from './AddTodoForm';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import style from '../styling/Navbar.module.css';
 import '../styling/App.css';
 
 function TodoContainer({tableName}){
@@ -97,6 +99,11 @@ function TodoContainer({tableName}){
   return(
     <>
       <div className="container">
+      <nav>
+        <Link to="/about" className={style.bg}>About</Link>
+        <span className={style.bg}>|</span> 
+        <Link to="/" className={style.bg}>Todo List</Link>
+      </nav>
         <h1 className="headlinePrimary">{tableName}</h1>
           <AddTodoForm onAddTodo={addTodo} />
           { isLoading ? (
@@ -111,5 +118,5 @@ function TodoContainer({tableName}){
 
 TodoContainer.prototype = {
     tableName: PropTypes.string,
-  }
+}
 export default TodoContainer;

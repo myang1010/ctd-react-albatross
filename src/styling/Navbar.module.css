@@ -1,0 +1,23 @@
+.bg{
+  background-color:transparent;
+  color:black;
+  height: fit-content;
+  width:auto;
+  text-decoration:none;
+  font-size: large;
+  text-align: center;
+  margin-right: 0.5em;
+}
+.middle {
+  white-space: nowrap;
+  padding-bottom: 0.5em;
+  text-align: center;
+}
+
+.MarginRight{
+  margin-right: 1em;
+}
+
+.MarginLeft{
+  margin-left:1em;
+}

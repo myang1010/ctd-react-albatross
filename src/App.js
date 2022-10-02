@@ -1,6 +1,7 @@
 import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import TodoContainer from './components/todoContainer';
+import About from './components/About';
 import "./styling/App.css";
 
 function App() {
@@ -15,7 +16,9 @@ function App() {
 
         </Route>
         <Route path='/about' element={
-          <h1>About Todo List App</h1>
+          <>
+            <About></About>
+          </>
         }>
         </Route>
       </Routes>
