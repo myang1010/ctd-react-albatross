@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path='/' element={
           <>
-            <TodoContainer tableName='TodoList'></TodoContainer>
+            <TodoContainer tableName='To Do List'></TodoContainer>
           </>
         }>
 

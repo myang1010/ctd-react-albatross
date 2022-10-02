@@ -12,3 +12,16 @@
 .MarginLeft{
   margin-left:1em;
 }
+
+.loading{
+  position: fixed;
+  left: 50%;
+  top: 35%;
+}
+.MarginRight{
+  margin-right: 1em;
+}
+
+.MarginLeft{
+  margin-left:1em;
+}

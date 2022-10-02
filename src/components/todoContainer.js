@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import TodoList from './TodoList';
 import AddTodoForm from './AddTodoForm';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import style from '../styling/Navbar.module.css';
+import style from '../styling/TodoList.module.css';
 import '../styling/App.css';
 import {Hearts} from 'react-loader-spinner';
+import Navbar from './Navbar';
 
 function TodoContainer({tableName}){
   const[todoList, setTodoList] = useState([]);
@@ -100,11 +100,7 @@ function TodoContainer({tableName}){
   return(
     <>
       <div className="container">
-      <nav>
-        <Link to="/about" className={style.bg}>About</Link>
-        <span className={style.bg}>|</span> 
-        <Link to="/" className={style.bg}>Todo List</Link>
-      </nav>
+      <Navbar />
         <h1 className="headlinePrimary">{tableName}</h1>
           <AddTodoForm onAddTodo={addTodo} />
           { isLoading ? (

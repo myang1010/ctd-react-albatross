@@ -8,21 +8,3 @@
   text-align: center;
   margin-right: 0.5em;
 }
-.middle {
-  white-space: nowrap;
-  padding-bottom: 0.5em;
-  text-align: center;
-}
-
-.loading{
-  position: fixed;
-  left: 50%;
-  top: 35%;
-}
-.MarginRight{
-  margin-right: 1em;
-}
-
-.MarginLeft{
-  margin-left:1em;
-}
