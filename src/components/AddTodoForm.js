@@ -11,7 +11,8 @@ function AddTodoForm({onAddTodo}){
 
   const handleTitleChange=(event)=>{
     const newTodoTitle = event.target.value
-    setTodoTitle(newTodoTitle)
+    const capitalizedNewTodoTitle = capitalizeTitle(newTodoTitle);
+    setTodoTitle(capitalizedNewTodoTitle)
   }
   
   const handleAddTodo = (event) =>{
@@ -22,6 +23,13 @@ function AddTodoForm({onAddTodo}){
     }
     onAddTodo({title: todoTitle }); 
     setTodoTitle('')
+  }
+
+  const capitalizeTitle = (title)=>{
+    const lowerCaseTitle = title.toLowerCase();
+    const firstLetter = lowerCaseTitle.charAt(0).toUpperCase();
+    const newTitle = lowerCaseTitle.replace(lowerCaseTitle.charAt(0), firstLetter)
+    return newTitle;
   }
 
   return(

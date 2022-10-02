@@ -30,7 +30,6 @@ function About(){
                     <li>Load in a font family from Google Fonts</li>
                     <li>Customize style of navigation items</li>
                     <li>Add multi-media usage</li>
-                    <li>No warnings!</li>
                 </ul>
             </li>
             <li><strong>Extra effort</strong>
@@ -38,6 +37,7 @@ function About(){
                     <li>Add Hearts loading indicator</li>
                     <li>Add an empty input check</li>
                     <li>Add a duplicate input check</li>
+                    <li>Add a task capitalization function</li>
                 </ul>
             </li>
             <li>Things to do next...

@@ -38,15 +38,16 @@ function TodoList({todoList, onRemoveTodo}){
           Created Time
         </button>
       </div>
-      
-      {sortedList.map((todo)=>{
-        return(
-          <TodoListItem
-            key={todo.id}
-            todo={todo}
-            onRemoveTodo={onRemoveTodo}
-          />
+      <ul>
+        {sortedList.map((todo)=>{
+          return(
+            <TodoListItem
+              key={todo.id}
+              todo={todo}
+              onRemoveTodo={onRemoveTodo}
+            />
         )})}
+      </ul> 
     </>
   );
 }
