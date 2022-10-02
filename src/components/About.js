@@ -39,6 +39,7 @@ function About(){
                     <li>Add a duplicate input check</li>
                     <li>Add a task capitalization function</li>
                     <li>Include a simple unit test case</li>
+                    <li>Deploy to Firebase</li>
                 </ul>
             </li>
             <li>Things to do next...
