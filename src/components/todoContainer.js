@@ -36,7 +36,8 @@ function TodoContainer({tableName}){
 
     const todoData = {
       fields:{
-        Title: todo.title
+        Id: todo.id,
+        Title: todo.title,
       }
     }
     try{
@@ -50,15 +51,22 @@ function TodoContainer({tableName}){
         body: JSON.stringify(todoData)
       });
 
-      console.log("response: ", response)
+    //   console.log("response: ", response)
       
-      const newTodos = [...todoList, todoData].sort((objA, objB) =>{
+      const newTodoData = {
+        Id: response.fields.Id,
+        Title: response.fields.Title,
+      }
+
+      console.log("todoList: ", todoList)
+      
+      const newTodos = [...todoList, newTodoData].sort((objA, objB) =>{
         if (objA.createdTime < objB.createdTime) {return -1;}
         else if (objA.createdTime > objB.createdTime) {return 1;}
         else { return 1;}
       }); 
 
-    setTodoList(newTodos);
+      setTodoList(newTodos);
     
     if(!response.ok){
         const message = `Error has occurred: ${response.status}`;
@@ -66,7 +74,7 @@ function TodoContainer({tableName}){
     }
     
     }catch(error){
-        console.log(error.message);
+        // console.log(error.message);
         return null;
     }
   }  

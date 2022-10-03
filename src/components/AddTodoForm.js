@@ -21,7 +21,7 @@ function AddTodoForm({onAddTodo}){
       alert("Title can't be empty");
       return;
     }
-    onAddTodo({title: todoTitle }); 
+    onAddTodo({title: todoTitle, id: Date.now() }); 
     setTodoTitle('')
   }
 
