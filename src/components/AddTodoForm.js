@@ -18,10 +18,11 @@ function AddTodoForm({onAddTodo}){
   const handleAddTodo = (event) =>{
     event.preventDefault();
     if (todoTitle === ''){
-      alert("Title can't be empty");
+      alert("Task name can't be empty");
       return;
     }
-    onAddTodo({title: todoTitle, id: Date.now() }); 
+
+    onAddTodo({title: todoTitle }); 
     setTodoTitle('')
   }
 

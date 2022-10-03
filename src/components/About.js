@@ -25,6 +25,7 @@ function About(){
                     <li>Load in a font family from Google Fonts</li>
                     <li>Customize style of navigation items</li>
                     <li>Add multi-media usage</li>
+                    <li>No warnings!</li>
                 </ul>
             </li>
             <li><strong>Some extra effort</strong>
@@ -46,7 +47,7 @@ function About(){
             </li>
         </ul>
       </section>
-      <p>Thank you CTD, mentors and classmates for the past 2 months!</p>
+      <p>Thank you CTD, mentors and classmates for the past 4 months!</p>
     </div>
   )
 }

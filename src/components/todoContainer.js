@@ -30,13 +30,12 @@ function TodoContainer({tableName}){
   const addTodo = async(todo) =>{
     let isExist = todoList.find((existingTodo)=>(existingTodo.fields.Title === todo.title))
     if(isExist) { 
-      alert("Task already exist.")
+      alert("Task already exists.")
       return;
     }    
 
     const todoData = {
       fields:{
-        Id: todo.id,
         Title: todo.title,
       }
     }
@@ -51,16 +50,9 @@ function TodoContainer({tableName}){
         body: JSON.stringify(todoData)
       });
 
-    //   console.log("response: ", response)
+      console.log("response: ", response)
       
-      const newTodoData = {
-        Id: response.fields.Id,
-        Title: response.fields.Title,
-      }
-
-      console.log("todoList: ", todoList)
-      
-      const newTodos = [...todoList, newTodoData].sort((objA, objB) =>{
+      const newTodos = [...todoList].sort((objA, objB) =>{
         if (objA.createdTime < objB.createdTime) {return -1;}
         else if (objA.createdTime > objB.createdTime) {return 1;}
         else { return 1;}
@@ -74,7 +66,7 @@ function TodoContainer({tableName}){
     }
     
     }catch(error){
-        // console.log(error.message);
+        console.log(error.message);
         return null;
     }
   }  

@@ -32,7 +32,7 @@ function TodoList({todoList, onRemoveTodo}){
       <div className={style.middle}>
         <strong>Sort by:</strong>
         <button className={`${style.MarginRight} ${style.MarginLeft} button`} onClick={()=>handleSort('TASK')}>
-          Task
+          Task Name
         </button>
         <button className= {`${style.MarginRight} button`} onClick={()=>handleSort('CTEATED')}>
           Created Time
