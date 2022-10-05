@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import TodoList from './TodoList';
 import AddTodoForm from './AddTodoForm';
 import PropTypes from 'prop-types';
-import style from '../styling/TodoList.module.css';
-import '../styling/App.css';
+import style from './TodoList.module.css';
+import '../App.css';
 import {Hearts} from 'react-loader-spinner';
 import Navbar from './Navbar';
 
@@ -60,14 +60,14 @@ function TodoContainer({tableName}){
 
       setTodoList(newTodos);
     
-    if(!response.ok){
+      if(!response.ok){
         const message = `Error has occurred: ${response.status}`;
         throw new Error(message);
     }
     
     }catch(error){
-        console.log(error.message);
-        return null;
+      console.log(error.message);
+      return null;
     }
   }  
 

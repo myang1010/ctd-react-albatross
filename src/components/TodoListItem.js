@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import style from '../styling/TodoListItem.module.css';
+import style from './TodoListItem.module.css';
 import minusSign from '../img/minus.png'
 
 function TodoListItem({todo, onRemoveTodo}){

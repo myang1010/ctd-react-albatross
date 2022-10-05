@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styling/App.css';
+import '../App.css';
 import Navbar from './Navbar';
 
 function About(){
@@ -35,7 +35,7 @@ function About(){
                     <li>Add a duplicate input check</li>
                     <li>Add a task capitalization function</li>
                     <li>Include a simple unit test case</li>
-                    <li>Deploy to Firebase</li>
+                    <li><a href="https://todolist-8820a.web.app/" target="_blank" rel="noopener noreferrer">Deploy to Firebase</a></li>
                 </ul>
             </li>
             <li>Things to do next...

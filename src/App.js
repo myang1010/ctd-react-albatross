@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import TodoContainer from './components/todoContainer';
 import About from './components/About';
-import "./styling/App.css";
+import "./App.css";
 
 function App() {
   return (

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import TodoListItem from './TodoListItem'
-import style from '../styling/TodoList.module.css'
-import '../styling/App.css'
+import style from './TodoList.module.css'
+import '../App.css'
 import { sortBy } from 'lodash';
 
 const SORTS = {
