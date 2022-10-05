@@ -1,0 +1,27 @@
+.middle {
+  white-space: nowrap;
+  padding-bottom: 0.5em;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.MarginRight{
+  margin-right: 1em;
+}
+
+.MarginLeft{
+  margin-left:1em;
+}
+
+.loading{
+  position: fixed;
+  left: 50%;
+  top: 35%;
+}
+.MarginRight{
+  margin-right: 1em;
+}
+
+.MarginLeft{
+  margin-left:1em;
+}

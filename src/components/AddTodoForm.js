@@ -3,6 +3,7 @@ import React from 'react';
 import {useState} from 'react';
 import InputWithLabel from './InputWithLabel';
 import '../App.css';
+import plusSign from '../img/plus.png'
 
 function AddTodoForm({onAddTodo}){
 
@@ -10,13 +11,26 @@ function AddTodoForm({onAddTodo}){
 
   const handleTitleChange=(event)=>{
     const newTodoTitle = event.target.value
-    setTodoTitle(newTodoTitle)
+    const capitalizedNewTodoTitle = capitalizeTitle(newTodoTitle);
+    setTodoTitle(capitalizedNewTodoTitle)
   }
   
   const handleAddTodo = (event) =>{
     event.preventDefault();
-    onAddTodo({title: todoTitle, id: Date.now()})
+    if (todoTitle === ''){
+      alert("Task name can't be empty");
+      return;
+    }
+
+    onAddTodo({title: todoTitle }); 
     setTodoTitle('')
+  }
+
+  const capitalizeTitle = (title)=>{
+    const lowerCaseTitle = title.toLowerCase();
+    const firstLetter = lowerCaseTitle.charAt(0).toUpperCase();
+    const newTitle = lowerCaseTitle.replace(lowerCaseTitle.charAt(0), firstLetter)
+    return newTitle;
   }
 
   return(
@@ -25,9 +39,12 @@ function AddTodoForm({onAddTodo}){
         todoTitle={todoTitle}
         handleTitleChange={handleTitleChange}
       >
-        <strong className="label">Title: </strong>
+        <strong className="label">Task: </strong>
       </InputWithLabel>
-      <button className="button">Add</button>
+      <button className="buttonPlus">
+        <img src={plusSign} alt="plus sign" width="24px" height="24px"/>
+      </button>
+
     </form>
   );
 }

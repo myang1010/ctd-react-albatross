@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect } from "react";
 import '../App.css';
 
-const InputWithLabel = ({children, todoTitle, handleTitleChange}) => {
+const InputWithLabel = ({todoTitle, handleTitleChange, children}) => {
   const inputRef = React.useRef();
 
   useEffect(()=>{
@@ -24,9 +24,9 @@ const InputWithLabel = ({children, todoTitle, handleTitleChange}) => {
 )}
 
 InputWithLabel.prototype = {
-  children: PropTypes.element.isRequired,
   todoTitle: PropTypes.string,
   handleTitleChange: PropTypes.func,
+  children: PropTypes.element.isRequired,
 }
 
 export default InputWithLabel;

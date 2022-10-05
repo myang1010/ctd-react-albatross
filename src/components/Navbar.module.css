@@ -1,0 +1,10 @@
+.bg{
+  background-color:transparent;
+  color:black;
+  height: fit-content;
+  width:auto;
+  text-decoration:none;
+  font-size: large;
+  text-align: center;
+  margin-right: 0.5em;
+}
