@@ -11,7 +11,7 @@ function TodoContainer({tableName}){
   const[todoList, setTodoList] = useState([]);
   const[isLoading, setIsLoading] = useState(true);
 
-  const sortingFunction = (records) =>{
+  const sortByCreatedTime = (records) =>{
     return records.sort((objA, objB)=>{
         if (objA.createdTime < objB.createdTime) {return -1;}
         else if (objA.createdTime > objB.createdTime) {return 1;}
@@ -25,7 +25,7 @@ function TodoContainer({tableName}){
     })
     .then((response)=>response.json())
     .then((result) =>{
-      const sortedTodos = sortingFunction(result.records);
+      const sortedTodos = sortByCreatedTime(result.records);
       setTodoList(sortedTodos);
       setIsLoading(false);
     })
@@ -56,7 +56,7 @@ function TodoContainer({tableName}){
 
       console.log("response: ", response)
 
-      const newTodos = sortingFunction([...todoList])
+      const newTodos = sortByCreatedTime([...todoList])
 
       setTodoList(newTodos);
     
