@@ -11,17 +11,21 @@ function TodoContainer({tableName}){
   const[todoList, setTodoList] = useState([]);
   const[isLoading, setIsLoading] = useState(true);
 
+  const sortingFunction = (records) =>{
+    return records.sort((objA, objB)=>{
+        if (objA.createdTime < objB.createdTime) {return -1;}
+        else if (objA.createdTime > objB.createdTime) {return 1;}
+        else { return 0;}
+    })
+  }
+
   useEffect(()=>{
     fetch(`https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/${tableName}`,{
        headers:{ 'Authorization': `Bearer ${process.env.REACT_APP_AIRTABLE_API_KEY}`}
     })
     .then((response)=>response.json())
     .then((result) =>{
-        const sortedTodos = result.records.sort((objA, objB) =>{
-        if (objA.createdTime < objB.createdTime) {return -1;}
-        else if (objA.createdTime > objB.createdTime) {return 1;}
-        else { return 1;}
-      })
+      const sortedTodos = sortingFunction(result.records);
       setTodoList(sortedTodos);
       setIsLoading(false);
     })
@@ -51,12 +55,8 @@ function TodoContainer({tableName}){
       });
 
       console.log("response: ", response)
-      
-      const newTodos = [...todoList].sort((objA, objB) =>{
-        if (objA.createdTime < objB.createdTime) {return -1;}
-        else if (objA.createdTime > objB.createdTime) {return 1;}
-        else { return 1;}
-      }); 
+
+      const newTodos = sortingFunction([...todoList])
 
       setTodoList(newTodos);
     
